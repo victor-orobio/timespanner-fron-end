@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeGroup } from '../model/employees.model';
 import { Table } from 'primeng/table'
-
+import { DynamicDialogService } from 'src/app/timespanner-shared/services/dynamic-dialog.service';
+import { CreateEmployeesGroupComponent } from 'src/app/administration/employees-group/actions-employees-group/create-employees-group/create-employees-group.component';
 
 @Component({
   selector: 'app-list-employees-group',
@@ -17,7 +18,7 @@ export class ListEmployeesGroupComponent implements OnInit {
   @ViewChild('dt')
   dt!: Table;
 
-  constructor() { }
+  constructor(private dinamicDialog:DynamicDialogService) { }
 
   ngOnInit(): void {
     this.employeesGroups = [
@@ -46,6 +47,10 @@ export class ListEmployeesGroupComponent implements OnInit {
 
   applyFilterGlobal($event:any, stringVal:any) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, 'contains');
+  }
+
+  create(){
+    this.dinamicDialog.showDinamicDialog(CreateEmployeesGroupComponent).subscribe();
   }
 
 }

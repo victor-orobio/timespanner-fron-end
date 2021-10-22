@@ -1,66 +1,74 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card>
+      <p-toolbar styleClass="mb-4 custom-toolbar">
+        <div>
+          <h3>Administracion Grupo Empleados</h3>
+        </div>
+        <div>
+          <button _ngcontent-hmo-c168="" pbutton="" pripple="" label="New" icon="pi pi-plus" class="p-button-success mr-2 p-button" (click)="create()">
+            <span class="p-button-icon p-button-icon-left pi pi-plus" aria-hidden="true"></span>
+            <span class="p-button-label">New</span>
+            <span class="p-ink" style="height: 77px; width: 77px; top: -7.5px; left: 11.5px;"></span>
+          </button>
 
-  <p-toolbar styleClass="p-mb-4">
-    <ng-template pTemplate="left">
-      <h4 class="title p-m-0">Grupos de Empleados</h4>
-    </ng-template>
+          <button _ngcontent-hmo-c168="" pbutton="" pripple="" label="Delete" icon="pi pi-trash" class="p-button-danger p-button">
+            <span class="p-button-icon p-button-icon-left pi pi-trash" aria-hidden="true"></span>
+            <span class="p-button-label">Delete</span>
+            <span class="p-ink"></span>
+          </button>
+        </div>
 
-    <ng-template pTemplate="right">
-        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"></button>
-        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"></button>
-    </ng-template>
+        <!--<ng-template pTemplate="right">
+            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+        </ng-template>-->
+      </p-toolbar>
 
-    <!--<ng-template pTemplate="right">
-        <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
-        <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
-    </ng-template>-->
-  </p-toolbar>
-
-  <p-table #dt [value]="employeesGroups" [rows]="10" [paginator]="true" [globalFilterFields]="['id','code','description']" responsiveLayout="scroll"
-        [rowHover]="true" dataKey="id"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
-        <ng-template pTemplate="caption">
-            <div class="p-grid">
-              <div class="p-col">
-                <h5>Administrar Grupos</h5>
-              </div>
-
-              <div class="p-col">
-                <span class="p-input-icon-left p-col">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search..." />
-                </span>
-              </div>
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th style="width: 3rem">
-                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                </th>
-                <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="code">code <p-sortIcon field="code"></p-sortIcon></th>
-                <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
-                <th></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-employeeGroup>
-            <tr>
-                <td>
-                    <p-tableCheckbox [value]="employeeGroup"></p-tableCheckbox>
-                </td>
-                <td>{{employeeGroup.id}}</td>
-                <td>{{employeeGroup.code}}</td>
-                <td>{{employeeGroup.description}}</td>
-                <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
-                </td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="summary">
-            <div class="p-d-flex p-ai-center p-jc-between">
-                In total there are {{employeesGroups ? employeesGroups.length : 0 }} products.
-            </div>
-        </ng-template>
-    </p-table>
-
+      <p-table #dt [value]="employeesGroups" [rows]="10" [paginator]="true" [globalFilterFields]="['id','code','description']" responsiveLayout="scroll"
+            [rowHover]="true" dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="grid">
+                  <div class="col">
+                    <span class="p-input-icon-left align-right">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Buscar..." />
+                    </span>
+                  </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                    <th pSortableColumn="code">code <p-sortIcon field="code"></p-sortIcon></th>
+                    <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-employeeGroup>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="employeeGroup"></p-tableCheckbox>
+                    </td>
+                    <td>{{employeeGroup.id}}</td>
+                    <td>{{employeeGroup.code}}</td>
+                    <td>{{employeeGroup.description}}</td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    In total there are {{employeesGroups ? employeesGroups.length : 0 }} products.
+                </div>
+            </ng-template>
+        </p-table>
+    </p-card>
+  </div>
+</div>
