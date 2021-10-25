@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DynamicDialogService } from './dynamic-dialog.service';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ConfirmationService } from 'primeng/api';
 
 
 
@@ -11,6 +12,6 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
     CommonModule,
     DynamicDialogModule
   ],
-  providers: [DynamicDialogService, DialogService]
+  providers: [DynamicDialogService, DialogService, ConfirmationService]
 })
 export class TimespannerSharedModule { }

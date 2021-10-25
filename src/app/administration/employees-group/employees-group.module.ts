@@ -34,7 +34,8 @@ import { TimespannerSharedModule } from 'src/app/timespanner-shared/services/tim
     TableModule,
     InputTextModule,
     CardModule,
-    TimespannerSharedModule
+    TimespannerSharedModule,
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

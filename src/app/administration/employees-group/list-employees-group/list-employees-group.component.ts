@@ -50,7 +50,11 @@ export class ListEmployeesGroupComponent implements OnInit {
   }
 
   create(){
-    this.dinamicDialog.showDinamicDialog(CreateEmployeesGroupComponent).subscribe();
+    this.dinamicDialog.showDinamicDialog(CreateEmployeesGroupComponent,'Crear Grupo Empleados').subscribe();
+  }
+
+  deleteMultiple(deleteMultiple:EmployeeGroup[]){
+    console.log(deleteMultiple)
   }
 
 }

@@ -19,8 +19,7 @@ export class TopbarComponent{
             {
                label:'Grupo Empleados',
                icon:'pi pi-fw pi-user-plus',
-
-            },
+               url: 'administration/employees-group/list'            },
             {
               label:'Centros Operativos',
               icon:'pi pi-fw pi-user-plus',

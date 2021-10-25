@@ -1,1 +1,23 @@
-<p>create-employees-group works!</p>
+
+<form>
+  <div class="grid">
+    <div class="col-12 md-6">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="firstname1">Codigo</label>
+          <input id="firstname1" type="text" pinputtext="" class="p-inputtext p-component">
+        </div>
+
+        <div class="p-field">
+          <label for="lastname1">Descripcion</label>
+          <input id="lastname1" type="text" pinputtext="" class="p-inputtext p-component">
+        </div>
+      </div>
+
+      <div class="flex justify-content-end">
+        <p-button label="Cerrar" icon="pi pi-times p-jc-end" iconPos="left" class="mr-2" (click)="close()"></p-button>
+        <p-button label="Guardar" icon="pi pi-check p-jc-end" iconPos="left"></p-button>
+      </div>
+    </div>
+  </div>
+</form>
