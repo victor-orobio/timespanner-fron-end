@@ -1,3 +1,7 @@
+<p-messages ></p-messages>
+<p-confirmDialog></p-confirmDialog>
+
+
 <div class="grid">
   <div class="col-12">
     <p-card>
@@ -42,7 +46,6 @@
                     <th style="width: 3rem">
                         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                     </th>
-                    <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
                     <th pSortableColumn="code">code <p-sortIcon field="code"></p-sortIcon></th>
                     <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
                     <th></th>
@@ -53,12 +56,11 @@
                     <td>
                         <p-tableCheckbox [value]="employeeGroup"></p-tableCheckbox>
                     </td>
-                    <td>{{employeeGroup.id}}</td>
                     <td>{{employeeGroup.code}}</td>
                     <td>{{employeeGroup.description}}</td>
                     <td>
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editElement(employeeGroup)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteElement(employeeGroup)"></button>
                     </td>
                 </tr>
             </ng-template>
@@ -71,3 +73,4 @@
     </p-card>
   </div>
 </div>
+
