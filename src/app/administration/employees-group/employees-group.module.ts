@@ -8,7 +8,6 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {TableModule} from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 import {CardModule} from 'primeng/card';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 import { EmployeesGroupRoutingModule } from './employees-group-routing.module';
 import { ListEmployeesGroupComponent } from './list-employees-group/list-employees-group.component';
@@ -17,6 +16,7 @@ import { CreateEmployeesGroupComponent } from './actions-employees-group/create-
 import { EditEmployeesGroupComponent } from './actions-employees-group/edit-employees-group/edit-employees-group.component';
 import { TimespannerSharedModule } from 'src/app/timespanner-shared/services/timespanner-shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputTextModule,
     CardModule,
     TimespannerSharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmDialogModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

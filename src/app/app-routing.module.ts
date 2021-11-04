@@ -17,6 +17,16 @@ const routes: Routes = [
     path: CommonUrls.EMPLOYEES_GROUP,
     loadChildren: () => import('./administration/employees-group/employees-group.module').then((module) => module.EmployeesGroupModule),
     //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.COUNTRIES,
+    loadChildren: () => import('./administration/countries/countries.module').then((module) => module.CountriesModule),
+    //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.COST_CENTERS,
+    loadChildren: () => import('./administration/cost-centers/cost-centers.module').then((module) => module.CostCentersModule),
+    //canDeactivate: [SaveFormVerficationGuard],
   }
 
 ];

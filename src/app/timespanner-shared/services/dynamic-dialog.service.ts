@@ -18,11 +18,11 @@ export class DynamicDialogService {
     }).onClose;
   }
 
-  public confirm(content: string, title: string = ''): Subject<boolean> {
+  public confirm(content: string, title: string = '', key:string = ''): Subject<boolean> {
     const dialogResponse: Subject<boolean> = new Subject<boolean>();
 
     this.confirmationService.confirm({
-      key: 'confirm',
+      key: key,
       message: content,
       header: title,
       accept: () => {

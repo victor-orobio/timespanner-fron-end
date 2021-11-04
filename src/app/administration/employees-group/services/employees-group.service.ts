@@ -24,4 +24,8 @@ export class EmployeesGroupService {
   editEmployeeGroup(employeeGroup:EmployeeGroup){
     return this.http.put(employeeGroup._links.self.href, employeeGroup)
   }
+
+  deleteEmployeeGroup(employeeGroup:EmployeeGroup){
+    return this.http.delete(employeeGroup._links.self.href);
+  }
 }

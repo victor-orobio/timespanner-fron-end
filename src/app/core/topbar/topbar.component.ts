@@ -19,13 +19,15 @@ export class TopbarComponent{
             {
                label:'Grupo Empleados',
                icon:'pi pi-fw pi-user-plus',
-               url: 'administration/employees-group/list'            },
-            {
-              label:'Centros Operativos',
-              icon:'pi pi-fw pi-user-plus',
+               url: 'administration/employees-group/list'
             },
             {
               label:'Centros Costo',
+              icon:'pi pi-fw pi-user-plus',
+              url: 'administration/cost-centers/list'
+            },
+            {
+              label:'Centros Operativos',
               icon:'pi pi-fw pi-user-plus',
             },
 
@@ -37,6 +39,7 @@ export class TopbarComponent{
             {
               label:'Paises',
               icon:'pi pi-fw pi-user-plus',
+              url: 'administration/countries/list'
             },
             {
               label:'Ciudades',

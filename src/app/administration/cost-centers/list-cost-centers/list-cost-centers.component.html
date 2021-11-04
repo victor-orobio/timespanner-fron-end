@@ -1,12 +1,12 @@
 <p-messages ></p-messages>
-<p-confirmDialog key="confirmDeleteEmployeeGroup" acceptLabel="Si" rejectLabel="No"></p-confirmDialog>
+<p-confirmDialog key="confirmDeleteCostCenter" acceptLabel="Si" rejectLabel="No"></p-confirmDialog>
 
 <div class="grid">
   <div class="col-12">
     <p-card>
       <p-toolbar styleClass="mb-4 custom-toolbar">
         <div>
-          <h3>Administracion Grupo Empleados</h3>
+          <h3>Administracion Centros Costo</h3>
         </div>
         <div>
           <button pbutton="" pripple="" label="New" icon="pi pi-plus" class="p-button-success p-button mr-2" (click)="create()">
@@ -15,7 +15,7 @@
             <span class="p-ink" style="height: 77px; width: 77px; top: -7.5px; left: 11.5px;"></span>
           </button>
 
-          <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteMultiple(selectedEmployeesGroups)" [disabled]="!selectedEmployeesGroups || !selectedEmployeesGroups.length">
+          <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteMultiple(selectedCostCenters)" [disabled]="!selectedCostCenters || !selectedCostCenters.length">
 
           </button>
         </div>
@@ -26,8 +26,8 @@
         </ng-template>-->
       </p-toolbar>
 
-      <p-table #dt [value]="employeesGroups" [rows]="10" [paginator]="true" [globalFilterFields]="['id','code','description']" responsiveLayout="scroll"
-            [(selection)]="selectedEmployeesGroups"
+      <p-table #dt [value]="costCenters" [rows]="10" [paginator]="true" [globalFilterFields]="['id','code','description']" responsiveLayout="scroll"
+            [(selection)]="selectedCostCenters"
             [rowHover]="true" dataKey="code"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
             <ng-template pTemplate="caption">
@@ -45,27 +45,27 @@
                     <th style="width: 3rem">
                         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                     </th>
-                    <th pSortableColumn="code">code <p-sortIcon field="code"></p-sortIcon></th>
-                    <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                    <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
+                    <th pSortableColumn="description">Descripcion <p-sortIcon field="description"></p-sortIcon></th>
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-employeeGroup>
+            <ng-template pTemplate="body" let-costCenter>
                 <tr>
                     <td>
-                        <p-tableCheckbox [value]="employeeGroup"></p-tableCheckbox>
+                        <p-tableCheckbox [value]="costCenter"></p-tableCheckbox>
                     </td>
-                    <td>{{employeeGroup.code}}</td>
-                    <td>{{employeeGroup.description}}</td>
+                    <td>{{costCenter.code}}</td>
+                    <td>{{costCenter.description}}</td>
                     <td>
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editElement(employeeGroup)"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteElement(employeeGroup)"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editElement(costCenter)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteElement(costCenter)"></button>
                     </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
                 <div class="p-d-flex p-ai-center p-jc-between">
-                    In total there are {{employeesGroups ? employeesGroups.length : 0 }} products.
+                    In total there are {{costCenters ? costCenters.length : 0 }} cost centers.
                 </div>
             </ng-template>
         </p-table>
