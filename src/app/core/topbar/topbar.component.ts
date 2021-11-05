@@ -34,6 +34,7 @@ export class TopbarComponent{
             {
                label:'Tipos Identificacion',
                icon:'pi pi-fw pi-user-minus',
+               url: 'administration/identification-types/list'
 
             },
             {

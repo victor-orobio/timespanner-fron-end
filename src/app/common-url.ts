@@ -9,4 +9,6 @@ export class CommonUrls {
   public static readonly COUNTRIES_LIST = 'list';
   public static readonly COST_CENTERS = 'administration/cost-centers'
   public static readonly COST_CENTERS_LIST = 'list';
+  public static readonly IDENTIFICATION_TYPES = 'administration/identification-types'
+  public static readonly IDENTIFICATION_TYPES_LIST = 'list';
 }

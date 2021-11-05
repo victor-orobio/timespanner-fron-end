@@ -27,6 +27,11 @@ const routes: Routes = [
     path: CommonUrls.COST_CENTERS,
     loadChildren: () => import('./administration/cost-centers/cost-centers.module').then((module) => module.CostCentersModule),
     //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.IDENTIFICATION_TYPES,
+    loadChildren: () => import('./administration/identification-types/identification-types.module').then((module) => module.IdentificationTypesModule),
+    //canDeactivate: [SaveFormVerficationGuard],
   }
 
 ];

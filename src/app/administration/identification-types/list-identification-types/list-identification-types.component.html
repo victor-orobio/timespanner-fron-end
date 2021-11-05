@@ -1,0 +1,77 @@
+<p-messages ></p-messages>
+<p-confirmDialog key="confirmDeleteIdentificationType" acceptLabel="Si" rejectLabel="No"></p-confirmDialog>
+
+<div class="grid">
+  <div class="col-12">
+    <p-card>
+      <p-toolbar styleClass="mb-4 custom-toolbar">
+        <div>
+          <h3>Administracion Tipos Identificacion</h3>
+        </div>
+        <div>
+          <button pbutton="" pripple="" label="New" icon="pi pi-plus" class="p-button-success p-button mr-2" (click)="create()">
+            <span class="p-button-icon p-button-icon-left pi pi-plus" aria-hidden="true"></span>
+            <span class="p-button-label">New</span>
+            <span class="p-ink" style="height: 77px; width: 77px; top: -7.5px; left: 11.5px;"></span>
+          </button>
+
+          <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteMultiple(selectedIdentificationTypes)" [disabled]="!selectedIdentificationTypes || !selectedIdentificationTypes.length">
+
+          </button>
+        </div>
+
+        <!--<ng-template pTemplate="right">
+            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+        </ng-template>-->
+      </p-toolbar>
+
+      <p-table #dt [value]="identificationTypes" [rows]="10" [paginator]="true" [globalFilterFields]="['id','code','name', 'country_code']" responsiveLayout="scroll"
+            [(selection)]="selectedIdentificationTypes"
+            [rowHover]="true" dataKey="code"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="grid">
+                  <div class="col">
+                    <span class="p-input-icon-left align-right">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Buscar..." />
+                    </span>
+                  </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
+                    <th pSortableColumn="description">Descripcion <p-sortIcon field="description"></p-sortIcon></th>
+                    <th pSortableColumn="countryCode">País <p-sortIcon field="countryCode"></p-sortIcon></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-identificationType>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="identificationType"></p-tableCheckbox>
+                    </td>
+                    <td>{{identificationType.code}}</td>
+                    <td>{{identificationType.description}}</td>
+                    <td>{{identificationType.countryCode}}</td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editElement(identificationType)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteElement(identificationType)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    In total there are {{identificationTypes ? identificationTypes.length : 0 }} identification types.
+                </div>
+            </ng-template>
+        </p-table>
+    </p-card>
+  </div>
+</div>
+
