@@ -14,7 +14,7 @@ export class TopbarComponent{
     this.items = [
       {
          label:'Administracion',
-         icon:'pi pi-fw pi-user',
+         icon:'pi pi-fw pi-users',
          items:[
             {
                label:'Grupo Empleados',
