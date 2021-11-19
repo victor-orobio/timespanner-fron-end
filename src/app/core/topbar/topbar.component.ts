@@ -29,6 +29,7 @@ export class TopbarComponent{
             {
               label:'Centros Operativos',
               icon:'pi pi-fw pi-user-plus',
+              url: 'administration/operative-centers/list'
             },
 
             {
@@ -49,6 +50,7 @@ export class TopbarComponent{
             {
               label:'Departamentos',
               icon:'pi pi-fw pi-user-plus',
+              url: 'administration/estates/list'
             },
             {
                label:'Usuarios',

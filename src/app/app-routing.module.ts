@@ -32,8 +32,22 @@ const routes: Routes = [
     path: CommonUrls.IDENTIFICATION_TYPES,
     loadChildren: () => import('./administration/identification-types/identification-types.module').then((module) => module.IdentificationTypesModule),
     //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.OPERATIVE_CENTERS,
+    loadChildren: () => import('./administration/operative-centers/operative-centers.module').then((module) => module.OperativeCentersModule),
+    //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.ESTATES,
+    loadChildren: () => import('./administration/states/states.module').then((module) => module.StatesModule),
+    //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.CITIES,
+    loadChildren: () => import('./administration/cities/cities.module').then((module) => module.CitiesModule),
+    //canDeactivate: [SaveFormVerficationGuard],
   }
-
 ];
 
 @NgModule({

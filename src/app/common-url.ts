@@ -11,4 +11,10 @@ export class CommonUrls {
   public static readonly COST_CENTERS_LIST = 'list';
   public static readonly IDENTIFICATION_TYPES = 'administration/identification-types'
   public static readonly IDENTIFICATION_TYPES_LIST = 'list';
+  public static readonly OPERATIVE_CENTERS = 'administration/operative-centers'
+  public static readonly OPERATIVE_CENTER_LIST = 'list';
+  public static readonly ESTATES = 'administration/estates'
+  public static readonly ESTATES_LIST = 'list';
+  public static readonly CITIES = 'administration/cities'
+  public static readonly CITIES_LIST = 'list';
 }

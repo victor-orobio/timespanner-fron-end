@@ -65,7 +65,7 @@ export class ListIdentificationTypesComponent implements OnInit {
   }
 
   deleteElement(identificationType:IdentificationType){
-    this.dinamicDialog.confirm('¿Esta seguro que desea eliminar el registro?', 'Eliminar Registro', 'confirmDeleteIdenticationType').subscribe(resp => {
+    this.dinamicDialog.confirm('¿Esta seguro que desea eliminar el registro?', 'Eliminar Registro', 'confirmDeleteIdentificationType').subscribe(resp => {
       if(resp){
         this.identificationTypesService.deleteIdentificationType(identificationType).subscribe(respt => {
           this.toastService.displayToast('success', 'Registro Eliminado', 'Se ha eliminado el tipo de identificacion seleccionado!');

@@ -1,5 +1,5 @@
 
-<form [formGroup]="identificationTypesForm" novalidate padding (ngSubmit)="editIdentificacionType()">
+<form [formGroup]="stateForm" novalidate padding (ngSubmit)="editState()">
     <div class="grid">
       <div class="col-12 md-6">
         <div class="p-fluid">
@@ -9,8 +9,8 @@
           </div>
   
           <div class="p-field">
-            <label for="description">Descripcion</label>
-            <input id="description" type="text" pinputtext="" class="p-inputtext p-component" formControlName="description">
+            <label for="name">Nombre</label>
+            <input id="name" type="text" pinputtext="" class="p-inputtext p-component" formControlName="name">
           </div>
   
           <div class="p-field">
@@ -18,16 +18,18 @@
             <p-dropdown
                 [options]="countries"
                 formControlName="countryCode"
-                placeholder="Seleccionar País"
+                placeholder="Seleccionar Pais"
                 optionLabel="name"
-                [showClear]="true">
+                optionVale="code"
+                [showClear]="true"
+                name="state.countryCode">
             </p-dropdown>
           </div>
         </div>
   
         <div class="flex justify-content-end">
           <p-button label="Cerrar" icon="pi pi-times p-jc-end" iconPos="left" class="mr-2" (click)="close()"></p-button>
-          <p-button label="Guardar" icon="pi pi-check p-jc-end" iconPos="left" type="submit" [disabled]="identificationTypesForm.invalid"></p-button>
+          <p-button label="Guardar" icon="pi pi-check p-jc-end" iconPos="left" type="submit" [disabled]="stateForm.invalid"></p-button>
         </div>
       </div>
     </div>

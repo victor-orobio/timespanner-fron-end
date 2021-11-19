@@ -4,30 +4,29 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Country } from 'src/app/administration/countries/model/country.model';
 import { CountriesService } from 'src/app/administration/countries/services/countries.service';
 import { ToastService } from 'src/app/timespanner-shared/services/toast.service';
-import { IdentificationType } from '../../model/identification-types.model';
-import { IdentificationsTypesService } from '../../services/identifications-types.service';
+import { State } from '../../model/state.model';
+import { StatesService } from '../../services/states.service';
 
 @Component({
-  selector: 'app-create-identification-type',
-  templateUrl: './create-identification-type.component.html',
-  styleUrls: ['./create-identification-type.component.scss']
+  selector: 'app-create-state',
+  templateUrl: './create-state.component.html',
+  styleUrls: ['./create-state.component.scss']
 })
-export class CreateIdentificationTypeComponent implements OnInit {
+export class CreateStateComponent implements OnInit {
 
-  identificationTypesForm: FormGroup;
+  stateForm: FormGroup;
   countries:Country[] = [];
-  //countrySelected:Country;
 
   constructor(
     public ref: DynamicDialogRef,
     private fm: FormBuilder,
-    private identificationTypesService:IdentificationsTypesService,
+    private statesService:StatesService,
     private countriesService:CountriesService,
     private toastService:ToastService
-  ) {
-    this.identificationTypesForm = this.fm.group({
+  ) { 
+    this.stateForm = this.fm.group({
       code: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       countryCode: ['', [Validators.required]]
     });
   }
@@ -42,12 +41,12 @@ export class CreateIdentificationTypeComponent implements OnInit {
     this.ref.close();
   }
 
-  createIdentificationType(){
-    this.identificationTypesForm.value.countryCode = this.identificationTypesForm.value.countryCode.code;
+  createState(){
+    this.stateForm.value.countryCode = this.stateForm.value.countryCode.code;
     
-    this.identificationTypesService.createIdentificationType(this.identificationTypesForm.value).subscribe((data:IdentificationType) => {
+    this.statesService.createState(this.stateForm.value).subscribe((data:State) => {
       this.ref.close(data);
-      this.toastService.displayToast('success', 'Registro Creado Correctamente', 'Se ha agregado el tipo de Identificacion!');
+      this.toastService.displayToast('success', 'Registro Creado Correctamente', 'Se ha agregado el Departamento!');
     },(error:any) => {
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelva a intentarlo o comuniquise con el administrador.')
     });

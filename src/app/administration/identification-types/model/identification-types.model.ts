@@ -3,5 +3,5 @@ export interface IdentificationType {
   code?:number;
   description?:string;
   countryCode?:string;
-  _links?:any;
+  _links?:any;  
 }
