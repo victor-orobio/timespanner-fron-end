@@ -46,6 +46,7 @@ export class EditCostCentersComponent implements OnInit {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Editado Correctamente', 'Se ha editado el centro de costo correctamente!');
     },(error:any) => {
+      this.ref.close();
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelva a intentarlo o comuniquise con el administrador.')
     });
 

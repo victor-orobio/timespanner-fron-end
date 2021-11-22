@@ -46,6 +46,7 @@ export class TopbarComponent{
             {
               label:'Ciudades',
               icon:'pi pi-fw pi-user-plus',
+              url: 'administration/cities/list'
             },
             {
               label:'Departamentos',
@@ -54,7 +55,8 @@ export class TopbarComponent{
             },
             {
                label:'Usuarios',
-               icon:'pi pi-fw pi-users'
+               icon:'pi pi-fw pi-users',
+               url: 'administration/users/list'
             }
          ]
       },

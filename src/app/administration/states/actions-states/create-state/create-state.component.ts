@@ -23,7 +23,7 @@ export class CreateStateComponent implements OnInit {
     private statesService:StatesService,
     private countriesService:CountriesService,
     private toastService:ToastService
-  ) { 
+  ) {
     this.stateForm = this.fm.group({
       code: ['', [Validators.required]],
       name: ['', [Validators.required]],
@@ -43,11 +43,12 @@ export class CreateStateComponent implements OnInit {
 
   createState(){
     this.stateForm.value.countryCode = this.stateForm.value.countryCode.code;
-    
+
     this.statesService.createState(this.stateForm.value).subscribe((data:State) => {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Creado Correctamente', 'Se ha agregado el Departamento!');
     },(error:any) => {
+      this.ref.close()
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelva a intentarlo o comuniquise con el administrador.')
     });
   }

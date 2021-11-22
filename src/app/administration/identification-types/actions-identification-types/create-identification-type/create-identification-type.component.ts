@@ -44,11 +44,12 @@ export class CreateIdentificationTypeComponent implements OnInit {
 
   createIdentificationType(){
     this.identificationTypesForm.value.countryCode = this.identificationTypesForm.value.countryCode.code;
-    
+
     this.identificationTypesService.createIdentificationType(this.identificationTypesForm.value).subscribe((data:IdentificationType) => {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Creado Correctamente', 'Se ha agregado el tipo de Identificacion!');
     },(error:any) => {
+      this.ref.close();
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelva a intentarlo o comuniquise con el administrador.')
     });
   }

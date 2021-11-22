@@ -17,4 +17,6 @@ export class CommonUrls {
   public static readonly ESTATES_LIST = 'list';
   public static readonly CITIES = 'administration/cities'
   public static readonly CITIES_LIST = 'list';
+  public static readonly USERS = 'administration/users'
+  public static readonly USERS_LIST = 'list';
 }

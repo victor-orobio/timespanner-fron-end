@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainProfilesComponent } from './main-profiles.component';
+import { MainUsersComponent } from './main-users.component';
 
-describe('MainProfilesComponent', () => {
-  let component: MainProfilesComponent;
-  let fixture: ComponentFixture<MainProfilesComponent>;
+describe('MainUsersComponent', () => {
+  let component: MainUsersComponent;
+  let fixture: ComponentFixture<MainUsersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainProfilesComponent ]
+      declarations: [ MainUsersComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainProfilesComponent);
+    fixture = TestBed.createComponent(MainUsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

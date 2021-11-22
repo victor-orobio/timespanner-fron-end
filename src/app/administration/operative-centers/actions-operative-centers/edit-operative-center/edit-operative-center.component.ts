@@ -13,20 +13,20 @@ import { OperativeCentersService } from '../../services/operative-centers.servic
 export class EditOperativeCenterComponent implements OnInit {
 
   operativeCentersForm: FormGroup;
-  operativeCenter:OperativeCenter = {};   
+  operativeCenter:OperativeCenter = {};
 
   constructor(
     public ref: DynamicDialogRef,
     private fm: FormBuilder,
-    private operativeCentersService:OperativeCentersService,    
+    private operativeCentersService:OperativeCentersService,
     private toastService:ToastService,
     private dialogService: DynamicDialogConfig
-  ) { 
-    this.operativeCenter = this.dialogService.data;    
+  ) {
+    this.operativeCenter = this.dialogService.data;
 
     this.operativeCentersForm = this.fm.group({
       code: [this.operativeCenter.code, [Validators.required]],
-      description: [this.operativeCenter.description, [Validators.required]],      
+      description: [this.operativeCenter.description, [Validators.required]],
     });
   }
 
@@ -45,6 +45,7 @@ export class EditOperativeCenterComponent implements OnInit {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Editado Correctamente', 'Se ha editado el centro operativo correctamente');
     },(error:any) => {
+      this.ref.close();
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelve a intentarlo o comuniquese con el administrador')
     })
   }

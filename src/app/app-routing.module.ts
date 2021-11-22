@@ -47,6 +47,11 @@ const routes: Routes = [
     path: CommonUrls.CITIES,
     loadChildren: () => import('./administration/cities/cities.module').then((module) => module.CitiesModule),
     //canDeactivate: [SaveFormVerficationGuard],
+  },
+  {
+    path: CommonUrls.USERS,
+    loadChildren: () => import('./administration/users/users.module').then((module) => module.UsersModule),
+    //canDeactivate: [SaveFormVerficationGuard],
   }
 ];
 

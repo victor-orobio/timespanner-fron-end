@@ -1,0 +1,34 @@
+
+<form [formGroup]="userForm" novalidate padding (ngSubmit)="createUser()">
+  <div class="grid">
+    <div class="col-12 md-6">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="firstname1">email</label>
+          <input id="firstname1" type="text" pinputtext="" class="p-inputtext p-component" formControlName="email">
+        </div>
+
+        <div class="p-field">
+          <label for="description">Nombre</label>
+          <input id="name" type="text" pinputtext="" class="p-inputtext p-component" formControlName="name">
+        </div>
+
+        <div class="p-field">
+          <label for="description">Perfil</label>
+          <p-dropdown
+            [options]="profiles"
+            formControlName="profileCode"
+            placeholder="Seleccionar Perfil"
+            optionLabel="description"
+            [showClear]="true">
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="flex justify-content-end">
+        <p-button label="Cerrar" icon="pi pi-times p-jc-end" iconPos="left" class="mr-2" (click)="close()"></p-button>
+        <p-button label="Guardar" icon="pi pi-check p-jc-end" iconPos="left" type="submit" [disabled]="userForm.invalid"></p-button>
+      </div>
+    </div>
+  </div>
+</form>

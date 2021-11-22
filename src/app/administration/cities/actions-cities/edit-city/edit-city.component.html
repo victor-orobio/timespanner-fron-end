@@ -1,1 +1,47 @@
-<p>edit-city works!</p>
+
+<form [formGroup]="cityForm" novalidate padding (ngSubmit)="editCity()">
+  <div class="grid">
+    <div class="col-12 md-6">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="firstname1">Codigo</label>
+          <input id="firstname1" type="text" pinputtext="" class="p-inputtext p-component" formControlName="code">
+        </div>
+
+        <div class="p-field">
+          <label for="description">Nombre</label>
+          <input id="name" type="text" pinputtext="" class="p-inputtext p-component" formControlName="name">
+        </div>
+
+        <div class="p-field">
+          <label for="description">País</label>
+          <p-dropdown
+            [options]="countries"
+            formControlName="countryCode"
+            placeholder="Seleccionar País"
+            optionLabel="name"
+            [showClear]="true"
+            (onChange)="loadStates()">
+          </p-dropdown>
+        </div>
+
+        <div class="p-field">
+          <label for="description">Departamento</label>
+          <p-dropdown
+            [options]="states"
+            formControlName="estateCode"
+            placeholder="Seleccionar Departamento"
+            optionLabel="name"
+            [showClear]="true"
+            >
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="flex justify-content-end">
+        <p-button label="Cerrar" icon="pi pi-times p-jc-end" iconPos="left" class="mr-2" (click)="close()"></p-button>
+        <p-button label="Guardar" icon="pi pi-check p-jc-end" iconPos="left" type="submit" [disabled]="cityForm.invalid"></p-button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,12 +1,12 @@
 <p-messages ></p-messages>
-<p-confirmDialog key="confirmDeleteCity" acceptLabel="Si" rejectLabel="No"></p-confirmDialog>
+<p-confirmDialog key="confirmDeleteUser" acceptLabel="Si" rejectLabel="No"></p-confirmDialog>
 
 <div class="grid">
   <div class="col-12">
     <p-card>
       <p-toolbar styleClass="mb-4 custom-toolbar">
         <div>
-          <h3>Administracion Ciudades</h3>
+          <h3>Administracion Usuarios</h3>
         </div>
         <div>
           <button pbutton="" pripple="" label="New" icon="pi pi-plus" class="p-button-success p-button mr-2" (click)="create()">
@@ -15,7 +15,7 @@
             <span class="p-ink" style="height: 77px; width: 77px; top: -7.5px; left: 11.5px;"></span>
           </button>
 
-          <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteMultiple(selectedCities)" [disabled]="!selectedCities || !selectedCities.length">
+          <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteMultiple(selectedUser)" [disabled]="!selectedUser || !selectedUser.length">
 
           </button>
         </div>
@@ -26,8 +26,8 @@
         </ng-template>-->
       </p-toolbar>
 
-      <p-table #dt [value]="cities" [rows]="10" [paginator]="true" [globalFilterFields]="['id','code','estateCode', 'countryCode']" responsiveLayout="scroll"
-            [(selection)]="selectedCities"
+      <p-table #dt [value]="users" [rows]="10" [paginator]="true" [globalFilterFields]="['id','email','name']" responsiveLayout="scroll"
+            [(selection)]="selectedUser"
             [rowHover]="true" dataKey="code"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
             <ng-template pTemplate="caption">
@@ -45,27 +45,27 @@
                     <th style="width: 3rem">
                         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                     </th>
-                    <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
-                    <th pSortableColumn="name">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-city>
+            <ng-template pTemplate="body" let-user>
                 <tr>
                     <td>
-                        <p-tableCheckbox [value]="city"></p-tableCheckbox>
+                        <p-tableCheckbox [value]="user"></p-tableCheckbox>
                     </td>
-                    <td>{{city.code}}</td>
-                    <td>{{city.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.name}}</td>
                     <td>
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editElement(city)"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteElement(city)"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editElement(user)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteElement(user)"></button>
                     </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
                 <div class="p-d-flex p-ai-center p-jc-between">
-                    In total there are {{cities ? cities.length : 0 }} Cities.
+                    In total there are {{users ? users.length : 0 }} Usuarios.
                 </div>
             </ng-template>
         </p-table>

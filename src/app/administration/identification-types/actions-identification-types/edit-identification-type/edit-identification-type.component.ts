@@ -53,11 +53,12 @@ export class EditIdentificationTypeComponent implements OnInit {
     this.identificationType.code = this.identificationTypesForm.value.code;
     this.identificationType.description = this.identificationTypesForm.value.description;
     this.identificationType.countryCode = this.identificationTypesForm.value.countryCode.code;
-    
+
     this.identificationTypesService.editIdentificationType(this.identificationType).subscribe((data:IdentificationType) => {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Editado Correctamente', 'Se ha editado el tipo de identificacion correctamente');
     },(error:any) => {
+      this.ref.close();
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelve a intentarlo o comuniquese con el administrador')
     })
   }

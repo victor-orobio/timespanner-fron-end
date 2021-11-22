@@ -17,12 +17,12 @@ export class CreateOperativeCenterComponent implements OnInit {
   constructor(
     public ref: DynamicDialogRef,
     private fm: FormBuilder,
-    private operativeCentersService:OperativeCentersService,    
+    private operativeCentersService:OperativeCentersService,
     private toastService:ToastService
-  ) { 
+  ) {
     this.operativeCentersForm = this.fm.group({
       code: ['', [Validators.required]],
-      description: ['', [Validators.required]]      
+      description: ['', [Validators.required]]
     });
   }
 
@@ -33,11 +33,12 @@ export class CreateOperativeCenterComponent implements OnInit {
     this.ref.close();
   }
 
-  createOperativeCenter(){        
+  createOperativeCenter(){
     this.operativeCentersService.createOperativeCenter(this.operativeCentersForm.value).subscribe((data:OperativeCenter) => {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Creado Correctamente', 'Se ha agregado el centro operativo!');
     },(error:any) => {
+      this.ref.close();
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelva a intentarlo o comuniquise con el administrador.')
     });
   }

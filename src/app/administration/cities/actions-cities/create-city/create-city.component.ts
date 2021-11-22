@@ -62,6 +62,7 @@ export class CreateCityComponent implements OnInit {
       this.ref.close(data);
       this.toastService.displayToast('success', 'Registro Creado Correctamente', 'Se ha agregado la Ciudad!');
     },(error:any) => {
+      this.ref.close();
       this.toastService.displayToast('error', 'Ocurrio un error', 'Ocurrio un error al intentar guardar, por favor vuelva a intentarlo o comuniquise con el administrador.')
     });
   }
